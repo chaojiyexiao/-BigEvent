@@ -50,7 +50,7 @@ $(function () {
             password: $('.reg-box [name=password]').val().trim(),
         };
         //c.发送注册信息到 接口
-        $.post('http://ajax.frontend.itheima.net' + '/api/reguser', data, function (res) {
+        $.post('/api/reguser', data, function (res) {
             if (res.status !== 0) {
                 layui.layer.msg(res.message);
             } else {
@@ -73,7 +73,7 @@ $(function () {
         var strData = $(this).serialize();
         //b.提交到 登录接口
         $.ajax({
-            url: 'http://ajax.frontend.itheima.net' + '/api/login',
+            url: '/api/login',
             method: 'post',
             data: strData,
             success: function (res) {
@@ -81,6 +81,9 @@ $(function () {
                 layui.layer.msg(res.message, function () {
                     // d.判断是否成功，就跳转
                     if (res.status === 0) {
+                        // e.将服务器发来的 token 保存到 硬盘中
+                        localStorage.setItem('token', res.token);
+                        // f.跳转到首页
                         location.href = '/index.html';
                     }
                 });
