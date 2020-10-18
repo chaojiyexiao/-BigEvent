@@ -13,7 +13,7 @@ $.ajaxPrefilter(function (opt) {
     }
     //3.统一处理 服务端返回的 未登录 错误
     opt.complete = function (res) {
-        if (res.responseJSON.status === 1) {
+        if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
             //a.提示用户没有权限
             alert('你的登录失效了，笨比');
             //b.删除 localstorage 中可能存在的伪造的 token
