@@ -14,7 +14,7 @@
         <div class="layui-card-header">修改密码</div>
         <div class="layui-card-body">
             <!-- 表单 begin -->
-            <form id="fromChangePwd" class="layui-form" action="" lay-filter="formUserInfo">
+            <form id="formChangePwd" class="layui-form" action="" lay-filter="formUserInfo">
                 <!-- <input type="hidden" name="id" value=""> -->
                 <!-- 文本框1 原密码-->
                 <div class="layui-form-item">
@@ -36,15 +36,15 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">确认新密码</label>
                     <div class="layui-input-block">
-                        <input type="password" required lay-verify="required" placeholder="请确认新密码" autocomplete="off"
-                            class="layui-input">
+                        <input type="password" required lay-verify="required|repwd" placeholder="请确认新密码"
+                            autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <!-- 按钮区域 -->
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <!-- 普通按钮 作为 提交按钮 -->
-                        <button id="btnSubmit" type="button" class="layui-btn" lay-submit
+                        <button id="btnSubmit" type="submit" class="layui-btn" lay-submit
                             lay-filter="formDemo">修改密码</button>
 
                         <!-- 普通按钮 作为 重置按钮 -->

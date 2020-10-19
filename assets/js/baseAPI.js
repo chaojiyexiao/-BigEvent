@@ -19,7 +19,7 @@ $.ajaxPrefilter(function (opt) {
             //b.删除 localstorage 中可能存在的伪造的 token
             localStorage.removeItem('token');
             // c.页面跳转到 login
-            location.href = "/login.html";
+            window.top.location.href = "/login.html";
         }
     }
 })
